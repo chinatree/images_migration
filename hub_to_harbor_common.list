@@ -1,0 +1,2 @@
+# NAME|TAG|ARCHS|PULL_HOST|PULL_PREFIX|PUSH_HOST|PUSH_PREFIX|STAGE_PREFIX|EXTEND_TAGS
+alpine|3.14.3|amd64,arm64|||harbor.yuntree.com|common|stage|latest
