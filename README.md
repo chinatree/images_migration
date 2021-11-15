@@ -9,60 +9,60 @@
 
 ## 帮助
 
-- images-tool.sh
+- images-migration.sh
 
 ```bash
-$ ./images-tool.sh -h
-Usage:     
-    ./images-tool.sh [-a <all|list|pull|tag|push|rmi|pull_tag>] [-pf <1|0>] [-f <image list file>]     
-      -a, --action            do action, default: list     
-      -pf, --platform         type for enable or disable plarform check and insert to path, default: 1     
-      -f                      image list file, default: hub_to_harbor_common.list     
+$ ./images-migration.sh -h
+Usage:
+    ./images-migration.sh [-a <all|list|pull|tag|push|rmi|pull_tag>] [-pf <1|0>] [-f <image list file>]
+      -a, --action            do action, default: list
+      -pf, --platform         type for enable or disable plarform check and insert to path, default: 1
+      -f                      image list file, default: hub_to_harbor_common.list
 
-action:     
-    all                       contains pull、tag、push action     
-    pull_tag                  contains pull、tag action     
-    list                      list iamges     
-    pull                      pull images     
-    tag                       tag images     
-    push                      push images     
-    rmi                       deletes images     
-    ./images-tool.sh -a all     
-    ./images-tool.sh -a pull_tag -pf=0     
-    ./images-tool.sh -a pull -pf=0     
-    ./images-tool.sh -a tag -pf=0 -f hub_to_harbor_common.list
+action:
+    all                       contains pull、tag、push action
+    pull_tag                  contains pull、tag action
+    list                      list iamges
+    pull                      pull images
+    tag                       tag images
+    push                      push images
+    rmi                       deletes images
+    ./images-migration.sh -a all
+    ./images-migration.sh -a pull_tag -pf=0
+    ./images-migration.sh -a pull -pf=0
+    ./images-migration.sh -a tag -pf=0 -f hub_to_harbor_common.list
 ```
 
-- images-tool-multiarch.sh
+- images-migration-multiarch.sh
 
 ```bash
-./images-tool-multiarch.sh -h
-Usage:     
-    ./images-tool-multiarch.sh [-a <all|list|pull|tag|push|rmi|pull_tag|manifest>] [-f <image list file>] [--stage <all|create|annotate|push|rm>]     
-      -a, --action            do action, default: list     
-      -f                      image list file, default: hub_to_harbor_common.list     
+$ ./images-migration-multiarch.sh -h
+Usage:
+    ./images-migration-multiarch.sh [-a <all|list|pull|tag|push|rmi|pull_tag|manifest>] [-f <image list file>] [--stage <all|create|annotate|push|rm>]
+      -a, --action            do action, default: list
+      -f                      image list file, default: hub_to_harbor_common.list
 
-action:     
-    all                       contains pull、tag、push、manifest action     
-    pull_tag                  contains pull、tag action     
-    list                      list iamges     
-    pull                      pull images     
-    tag                       tag images     
-    push                      push images     
-    rmi                       deletes images     
-    
-    manifest                  make docker image manifests     
-    
-    ./images-tool-multiarch.sh -a all     
-    ./images-tool-multiarch.sh -a pull_tag     
-    ./images-tool-multiarch.sh -a pull     
-    ./images-tool-multiarch.sh -a tag -f hub_to_harbor_common.list     
-    
-    ./images-tool-multiarch.sh -a manifest --stage all -f hub_to_harbor_common.list     
-    ./images-tool-multiarch.sh -a manifest --stage create     
-    ./images-tool-multiarch.sh -a manifest --stage annotate     
-    ./images-tool-multiarch.sh -a manifest --stage push     
-    ./images-tool-multiarch.sh -a manifest --stage rm
+action:
+    all                       contains pull、tag、push、manifest action
+    pull_tag                  contains pull、tag action
+    list                      list iamges
+    pull                      pull images
+    tag                       tag images
+    push                      push images
+    rmi                       deletes images
+
+    manifest                  make docker image manifests
+
+    ./images-migration-multiarch.sh -a all
+    ./images-migration-multiarch.sh -a pull_tag
+    ./images-migration-multiarch.sh -a pull
+    ./images-migration-multiarch.sh -a tag -f hub_to_harbor_common.list
+
+    ./images-migration-multiarch.sh -a manifest --stage all -f hub_to_harbor_common.list
+    ./images-migration-multiarch.sh -a manifest --stage create
+    ./images-migration-multiarch.sh -a manifest --stage annotate
+    ./images-migration-multiarch.sh -a manifest --stage push
+    ./images-migration-multiarch.sh -a manifest --stage rm
 ```
 
 ## 配置
@@ -108,10 +108,10 @@ alpine|3.14.3|amd64,arm64|||harbor.yuntree.com|common|stage|latest
 ========================
 
 # 执行命令
-./images-tool.sh -f hub_to_harbor_common.list -pf 0 -a pull
-./images-tool.sh -f hub_to_harbor_common.list -pf 0 -a tag
-./images-tool.sh -f hub_to_harbor_common.list -pf 0 -a push
-./images-tool.sh -f hub_to_harbor_common.list -pf 0 -a rmi
+./images-migration.sh -f hub_to_harbor_common.list -pf 0 -a pull
+./images-migration.sh -f hub_to_harbor_common.list -pf 0 -a tag
+./images-migration.sh -f hub_to_harbor_common.list -pf 0 -a push
+./images-migration.sh -f hub_to_harbor_common.list -pf 0 -a rmi
 ```
 
 ### 多架构
@@ -131,11 +131,11 @@ alpine|3.14.3|amd64,arm64|||harbor.yuntree.com|common|stage|latest
 ========================
 
 # 执行命令
-./image_tool_multiarch.sh -f hub_to_harbor_common.list -a pull
-./image_tool_multiarch.sh -f hub_to_harbor_common.list -a tag
-./image_tool_multiarch.sh -f hub_to_harbor_common.list -a push
-./image_tool_multiarch.sh -f hub_to_harbor_common.list -a rmi
-./image_tool_multiarch.sh -f hub_to_harbor_common.list -a manifest --stage all
+./image_migration_multiarch.sh -f hub_to_harbor_common.list -a pull
+./image_migration_multiarch.sh -f hub_to_harbor_common.list -a tag
+./image_migration_multiarch.sh -f hub_to_harbor_common.list -a push
+./image_migration_multiarch.sh -f hub_to_harbor_common.list -a rmi
+./image_migration_multiarch.sh -f hub_to_harbor_common.list -a manifest --stage all
 ```
 
 ## 协议
